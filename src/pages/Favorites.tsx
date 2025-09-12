@@ -3,7 +3,7 @@ import { NavLink } from 'react-router';
 function Favorites() {
   return (
     <div>
-      <NavLink to={'/'}>Home</NavLink>
+      <NavLink to={'/'}>Go To Home</NavLink>
     </div>
   );
 }
