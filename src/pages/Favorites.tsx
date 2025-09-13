@@ -5,20 +5,17 @@ import UserGrid from '../components/UserGrid';
 import UserList from '../components/UserList';
 import ViewToggle from '../components/ViewToggle';
 import ThemeToggle from '../components/ThemeToggle';
+import ClearFavorites from '../components/ClearFavorites';
 
 function Favorites() {
-  const { favoritesUsers, clearFavorites } = useFavoritesStore();
+  const { favoritesUsers } = useFavoritesStore();
   const { viewMode } = useViewStore();
 
-  const handleClearFavorites = () => {
-    if (window.confirm('Are you sure you want to clear all favorites?')) {
-      clearFavorites();
-    }
-  };
+
 
   return (
     <div className='min-h-screen bg-background transition-colors'>
-      <div className='container mx-auto px-20 py-8'>
+      <div className='container mx-auto sm:px-20 px-4 py-8'>
         {/* Header */}
         <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4'>
           <div>
@@ -45,12 +42,7 @@ function Favorites() {
         {favoritesUsers.length > 0 && (
           <div className='flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 gap-4'>
             <ViewToggle />
-            <button
-              onClick={handleClearFavorites}
-              className='px-4 py-2 bg-destructive text-destructive-foreground rounded-md hover:bg-destructive/90 transition-colors'
-            >
-              Clear All Favorites
-            </button>
+            <ClearFavorites />
           </div>
         )}
 
