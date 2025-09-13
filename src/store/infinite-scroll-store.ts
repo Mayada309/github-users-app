@@ -25,7 +25,7 @@ export const useInfiniteScrollStore = create<InfiniteScrollStore>(
     displayedUsers: [],
     filteredUsers: [],
     allUsers: [],
-    itemsPerPage: 5,
+    itemsPerPage: 8,
     hasMore: true,
     isLoading: false,
 
@@ -33,16 +33,16 @@ export const useInfiniteScrollStore = create<InfiniteScrollStore>(
       set({
         allUsers: users,
         filteredUsers: users,
-        displayedUsers: users.slice(0, 5),
-        hasMore: users.length > 5,
+        displayedUsers: users.slice(0, 8),
+        hasMore: users.length > 8,
       });
     },
 
     setFilteredUsers: (users: User[]) => {
       set({
         filteredUsers: users,
-        displayedUsers: users.slice(0, 5),
-        hasMore: users.length > 5,
+        displayedUsers: users.slice(0, 8),
+        hasMore: users.length > 8,
       });
     },
 
