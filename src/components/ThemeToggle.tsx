@@ -1,13 +1,15 @@
 import { useThemeStore } from '../store/theme-store';
 import { SunMedium, Moon } from 'lucide-react';
+import { Button } from './ui/button';
 
 function ThemeToggle() {
   const { isDarkMode, toggleDarkMode } = useThemeStore();
 
   return (
-    <button
+    <Button
+      size={'icon'}
       onClick={toggleDarkMode}
-      className='p-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors'
+      className='cursor-pointer'
       title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDarkMode ? (
@@ -15,7 +17,7 @@ function ThemeToggle() {
       ) : (
         <Moon className='w-5 h-5' />
       )}
-    </button>
+    </Button>
   );
 }
 
