@@ -17,7 +17,7 @@ function UserCard({ user }: UserCardProps) {
 
   return (
     <Card
-      className='rounded-lg shadow-md p-4 border border-border hover:shadow-lg transition-all cursor-pointer hover:scale-105 bg-card text-card-foreground'
+      className='rounded-lg shadow-md p-4 border border-border hover:shadow-lg transition-all cursor-pointer hover:scale-105 bg-card text-card-foreground relative'
       onClick={handleCardClick}
       title={`Click to view ${user.login}'s GitHub profile`}
     >
@@ -33,7 +33,7 @@ function UserCard({ user }: UserCardProps) {
           </h3>
           <p className='text-sm text-muted-foreground'>Type: {user.type}</p>
         </div>
-        <div onClick={handleButtonClick}>
+        <div className='absolute top-2 right-2' onClick={handleButtonClick}>
           <FavoriteButton user={user} />
         </div>
       </CardContent>
