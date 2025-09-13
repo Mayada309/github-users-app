@@ -1,12 +1,12 @@
-import FavoriteButton from './FavoriteButton';
 import type { User } from '../types/user';
+import FavoriteButton from './FavoriteButton';
 
-interface UserCardProps {
+interface UserItemProps {
   user: User;
 }
 
-function UserCard({ user }: UserCardProps) {
-  const handleCardClick = () => {
+function UserItem({ user }: UserItemProps) {
+  const handleRowClick = () => {
     window.open(user.html_url, '_blank', 'noopener,noreferrer');
   };
 
@@ -16,17 +16,17 @@ function UserCard({ user }: UserCardProps) {
 
   return (
     <div
-      className='bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all cursor-pointer hover:scale-105'
-      onClick={handleCardClick}
+      className='bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all cursor-pointer hover:scale-[1.02]'
+      onClick={handleRowClick}
       title={`Click to view ${user.login}'s GitHub profile`}
     >
-      <div className='flex flex-col items-center space-y-3'>
+      <div className='flex items-center space-x-4'>
         <img
           src={user.avatar_url}
           alt={`${user.login}'s avatar`}
-          className='w-20 h-20 rounded-full object-cover'
+          className='w-16 h-16 rounded-full object-cover'
         />
-        <div className='text-center'>
+        <div className='flex-1'>
           <h3 className='text-lg font-semibold text-gray-800 dark:text-gray-200'>
             {user.login}
           </h3>
@@ -36,11 +36,11 @@ function UserCard({ user }: UserCardProps) {
           <p className='text-sm text-gray-600 dark:text-gray-400'>
             Type: {user.type}
           </p>
-          <div className='mt-2 px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition-colors inline-block'>
+        </div>
+        <div className='flex flex-col space-y-2' onClick={handleButtonClick}>
+          <div className='px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition-colors text-center'>
             View Profile →
           </div>
-        </div>
-        <div onClick={handleButtonClick}>
           <FavoriteButton user={user} />
         </div>
       </div>
@@ -48,4 +48,4 @@ function UserCard({ user }: UserCardProps) {
   );
 }
 
-export default UserCard;
+export default UserItem;
