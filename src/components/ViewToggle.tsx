@@ -5,13 +5,13 @@ function ViewToggle() {
   const { viewMode, setViewMode } = useViewStore();
 
   return (
-    <div className='flex items-center bg-gray-200 dark:bg-gray-700 rounded-md p-1'>
+    <div className='flex items-center bg-secondary rounded-md p-1'>
       <button
         onClick={() => setViewMode('grid')}
         className={`p-2 rounded transition-colors ${
           viewMode === 'grid'
-            ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 shadow-sm'
-            : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+            ? 'bg-background text-foreground shadow-sm'
+            : 'text-muted-foreground hover:text-foreground'
         }`}
         title='Grid view'
       >
@@ -21,8 +21,8 @@ function ViewToggle() {
         onClick={() => setViewMode('list')}
         className={`p-2 rounded transition-colors ${
           viewMode === 'list'
-            ? 'bg-white dark:bg-gray-600 text-gray-900 dark:text-gray-100 shadow-sm'
-            : 'text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-200'
+            ? 'bg-background text-foreground shadow-sm'
+            : 'text-muted-foreground hover:text-foreground'
         }`}
         title='List view'
       >

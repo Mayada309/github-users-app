@@ -1,5 +1,6 @@
 import FavoriteButton from './FavoriteButton';
 import type { User } from '../types/user';
+import { Card, CardContent } from './ui/card';
 
 interface UserCardProps {
   user: User;
@@ -15,36 +16,28 @@ function UserCard({ user }: UserCardProps) {
   };
 
   return (
-    <div
-      className='bg-white dark:bg-gray-800 rounded-lg shadow-md p-4 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all cursor-pointer hover:scale-105'
+    <Card
+      className='rounded-lg shadow-md p-4 border border-border hover:shadow-lg transition-all cursor-pointer hover:scale-105 bg-card text-card-foreground'
       onClick={handleCardClick}
       title={`Click to view ${user.login}'s GitHub profile`}
     >
-      <div className='flex flex-col items-center space-y-3'>
+      <CardContent className='flex flex-col items-center space-y-3'>
         <img
           src={user.avatar_url}
           alt={`${user.login}'s avatar`}
           className='w-20 h-20 rounded-full object-cover'
         />
         <div className='text-center'>
-          <h3 className='text-lg font-semibold text-gray-800 dark:text-gray-200'>
+          <h3 className='text-lg font-semibold capitalize text-foreground'>
             {user.login}
           </h3>
-          <p className='text-sm text-gray-600 dark:text-gray-400'>
-            ID: {user.id}
-          </p>
-          <p className='text-sm text-gray-600 dark:text-gray-400'>
-            Type: {user.type}
-          </p>
-          <div className='mt-2 px-4 py-2 bg-blue-500 text-white text-sm rounded hover:bg-blue-600 transition-colors inline-block'>
-            View Profile →
-          </div>
+          <p className='text-sm text-muted-foreground'>Type: {user.type}</p>
         </div>
         <div onClick={handleButtonClick}>
           <FavoriteButton user={user} />
         </div>
-      </div>
-    </div>
+      </CardContent>
+    </Card>
   );
 }
 

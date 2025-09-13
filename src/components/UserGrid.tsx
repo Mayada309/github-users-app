@@ -8,7 +8,7 @@ interface UserGridProps {
 function UserGrid({ users }: UserGridProps) {
   if (users.length === 0) {
     return (
-      <div className='text-center py-8 text-gray-500 dark:text-gray-400'>
+      <div className='text-center py-8 text-muted-foreground'>
         No users found.
       </div>
     );

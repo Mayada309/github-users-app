@@ -1,4 +1,3 @@
-
 import { useThemeStore } from '../store/theme-store';
 import { SunMedium, Moon } from 'lucide-react';
 
@@ -8,17 +7,13 @@ function ThemeToggle() {
   return (
     <button
       onClick={toggleDarkMode}
-      className='p-2 rounded-md bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 hover:bg-gray-300 dark:hover:bg-gray-600 transition-colors'
+      className='p-2 rounded-md bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors'
       title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDarkMode ? (
-        <SunMedium
-          className='w-5 h-5'	
-        />
+        <SunMedium className='w-5 h-5' />
       ) : (
-        <Moon
-          className='w-5 h-5'
-        />
+        <Moon className='w-5 h-5' />
       )}
     </button>
   );
