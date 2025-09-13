@@ -28,7 +28,7 @@ export const useSearchStore = create<SearchStore>((set, get) => ({
   },
 
   setDebouncedSearchTerm: (term: string) => {
-    handleSearchParam('name', term);
+    handleSearchParam('search', term);
     set({ debouncedSearchTerm: term, isSearching: false });
   },
 

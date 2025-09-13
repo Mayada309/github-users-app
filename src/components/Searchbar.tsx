@@ -21,7 +21,7 @@ function Searchbar() {
 
   useEffect(() => {
     const searchParams = new URLSearchParams(window.location.search);
-    const name = searchParams.get('name');
+    const name = searchParams.get('search');
     if (name) {
       setSearchTerm(name);
       setIsSearching(false);
