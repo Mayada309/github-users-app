@@ -1,6 +1,7 @@
 import { useFavoritesStore } from '../store/favorites-store';
 import type { User } from '../types/user';
 import { Star } from 'lucide-react';
+import { Button } from './ui/button';
 
 interface FavoriteButtonProps {
   user: User;
@@ -20,21 +21,17 @@ function FavoriteButton({ user }: FavoriteButtonProps) {
   };
 
   return (
-    <button
+    <Button
       onClick={handleToggleFavorite}
-      className={`inline-flex items-center px-3 py-1 rounded-md text-sm font-medium transition-colors ${
-        isUserFavorited
-          ? 'bg-accent text-accent-foreground hover:bg-accent/90'
-          : 'bg-secondary text-secondary-foreground hover:bg-secondary/80'
-      }`}
+      className={`transition-colors text-foreground bg-transparent hover:bg-secondary/80 cursor-pointer`}
+      size='icon'
       title={isUserFavorited ? 'Remove from favorites' : 'Add to favorites'}
     >
       <Star
-        className='w-4 h-4 mr-1'
+        className='w-4 h-4 '
         fill={`${isUserFavorited ? 'currentColor' : 'none'}`}
       />
-      {isUserFavorited ? 'Favorited' : 'Favorite'}
-    </button>
+    </Button>
   );
 }
 
