@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { useSearchStore } from '../store/search-store';
 import { useDebounce } from '../hooks/useDebounce';
 import { Search, X } from 'lucide-react';
+import { Input } from './ui/input';
 
 function Searchbar() {
   const {
@@ -38,12 +39,12 @@ function Searchbar() {
         <div className='absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none'>
           <Search className='h-5 w-5 text-muted-foreground' />
         </div>
-        <input
+        <Input
           type='text'
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
           placeholder='Search users by username or type...'
-          className='block w-full pl-10 pr-12 py-3 border border-border rounded-lg leading-5 bg-input text-foreground placeholder-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring focus:border-ring'
+          className='w-full  pl-10 pr-12 py-3 text-base border border-border rounded-full leading-5  text-foreground placeholder-muted-foreground'
         />
         {searchTerm && (
           <div className='absolute inset-y-0 right-0 flex items-center'>
