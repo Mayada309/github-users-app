@@ -1,9 +1,8 @@
 import type { User } from '../types/user';
 import { fetchData } from './api';
-
-const githubApi = import.meta.env.VITE_GITHUB_API;
+import { GITHUB_API } from './env';
 
 export const getAllUsers = async () => {
-  const users: User[] = await fetchData(githubApi);
+  const users: User[] = await fetchData(GITHUB_API);
   return users;
 };
